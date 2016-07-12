@@ -103,6 +103,7 @@
     <Compile Include="Pages\Title.xaml.vb">
       <DependentUpon>Title.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\ImagePrinter.vb" />
     <Page Include="Controls\PrintoutsMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,6 +168,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\PrintButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Import Include="System.Threading.Tasks" />
@@ -225,6 +230,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\vigenere-table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Printouts\cipher-wheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Printouts\vigenere-table.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

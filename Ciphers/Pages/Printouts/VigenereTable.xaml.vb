@@ -1,3 +1,7 @@
 ﻿Class VigenereTable
-
+    Sub Print()
+        Dim imgUri = New Uri("pack://application:,,,/Images/Printouts/vigenere-table.png", UriKind.Absolute)
+        Dim printer = DirectCast(Windows.Application.Current, Application).Printer
+        printer.PrintImage(imgUri)
+    End Sub
 End Class
