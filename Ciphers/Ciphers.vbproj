@@ -220,9 +220,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Buttons\cipher-wheel.png" />
     <Resource Include="Images\Buttons\straddling-checkerboard.png" />
   </ItemGroup>
