@@ -1,0 +1,3 @@
+﻿Class StraddlingCheckerboard
+
+End Class

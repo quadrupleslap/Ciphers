@@ -1,0 +1,3 @@
+﻿Class StraddlingDemo
+
+End Class

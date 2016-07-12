@@ -1,0 +1,3 @@
+﻿Class CaesarInfo
+
+End Class

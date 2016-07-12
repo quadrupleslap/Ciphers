@@ -1,0 +1,56 @@
+﻿<Page x:Class="Title"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ciphers"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="600"
+      Title="Title">
+    <Page.Resources>
+        <Style x:Key="ButtonHover">
+            <Setter Property="FrameworkElement.Cursor" Value="Hand"/>
+
+            <Setter Property="UIElement.RenderTransform">
+                <Setter.Value>
+                    <TranslateTransform/>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Control.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)" To="16" Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Control.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)" To="0" Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+    <Grid Background="#FF212121">
+        <Grid Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="Historical Ciphers" HorizontalAlignment="Left" Foreground="White" FontFamily="Lucida Sans Typewriter" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
+            <Label Style="{StaticResource ButtonHover}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,118.158,0,129.589">
+                <Hyperlink NavigateUri="Caesar/Info.xaml" Foreground="White" FontFamily="Lucida Sans Typewriter" FontSize="24" TextDecorations="{x:Null}">› Caesar Cipher (Easy)</Hyperlink>
+            </Label>
+            <Label Style="{StaticResource ButtonHover}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,161.356,0,0">
+                <Hyperlink NavigateUri="Vigenere/Info.xaml" Foreground="White" FontFamily="Lucida Sans Typewriter" FontSize="24" TextDecorations="{x:Null}">› Vigenère Cipher (Intermediate)</Hyperlink>
+            </Label>
+            <Label Style="{StaticResource ButtonHover}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,204.552,0,0">
+                <Hyperlink NavigateUri="Straddling/Info.xaml" Foreground="White" FontFamily="Lucida Sans Typewriter" FontSize="24" TextDecorations="{x:Null}">› Straddling Checkerboard (Hard)</Hyperlink>
+            </Label>
+            <Label Style="{StaticResource ButtonHover}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,247.748,0,0">
+                <Hyperlink NavigateUri="Printouts.xaml" Foreground="White" FontFamily="Lucida Sans Typewriter" FontSize="24" TextDecorations="{x:Null}">› Printouts!</Hyperlink>
+            </Label>
+            <Label Content="(click to select)" HorizontalAlignment="Left" Foreground="White" FontFamily="Lucida Sans Typewriter" FontSize="20" Margin="0,66.39,0,0" VerticalAlignment="Top"/>
+        </Grid>
+    </Grid>
+</Page>

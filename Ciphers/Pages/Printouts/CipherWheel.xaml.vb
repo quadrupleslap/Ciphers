@@ -1,0 +1,3 @@
+﻿Class CipherWheel
+
+End Class
