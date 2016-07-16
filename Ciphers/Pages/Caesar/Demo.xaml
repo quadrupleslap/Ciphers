@@ -7,22 +7,114 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="600">
     <Page.Resources>
-        <ResourceDictionary Source="/Resources/Nav.xaml" />
+        <ResourceDictionary Source="/Resources/Nav.xaml"/>
     </Page.Resources>
     <Grid Background="#FF212121">
-        <Label Content="Caesar Cipher" HorizontalAlignment="Left" Foreground="White" FontFamily="Lucida Sans Typewriter" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Margin="10,10,0,0"/>
+        <Label
+            Content="Caesar Cipher"
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Foreground="White"
+            FontFamily="Lucida Sans Typewriter" FontSize="48" FontWeight="Bold"
+            Margin="10,10,0,0"/>
         <Label HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,32.77,10,0">
             <Hyperlink Style="{StaticResource NavButton}" NavigateUri="/Pages/Title.xaml">
-                Home
+                <Run Text="Home"/>
             </Hyperlink>
         </Label>
-        <Label Style="{StaticResource NavActive}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,32.77,82.84,0">
-            Demo
-        </Label>
+        <Label
+            Style="{StaticResource NavActive}"
+            HorizontalAlignment="Right" VerticalAlignment="Top"
+            Margin="0,32.77,82.84,0"
+            Content="Demo"/>
         <Label HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,32.77,155.68,0">
             <Hyperlink Style="{StaticResource NavButton}" NavigateUri="Info.xaml">
-                Info
+                <Run Text="Info"/>
             </Hyperlink>
         </Label>
+        <Grid Margin="10,147.187,10,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Column="0" Grid.Row="0"
+                Foreground="White"
+                FontSize="16" FontFamily="Lucida Sans Typewriter"
+                Content="Input:"/>
+            <Label
+                Grid.Column="2" Grid.Row="0"
+                Foreground="White"
+                FontSize="16" FontFamily="Lucida Sans Typewriter"
+                Content="Encoded Text:"/>
+            <TextBox
+                x:Name="PlainBox"
+                Grid.Column="0" Grid.Row="1"
+                Foreground="White"
+                Background="#333"
+                TextWrapping="Wrap"/>
+            <TextBox
+                x:Name="CipheredBox"
+                Grid.Column="2" Grid.Row="1"
+                Foreground="White"
+                Background="#333"
+                TextWrapping="Wrap"/>
+        </Grid>
+        <Label
+            Foreground="White"
+            FontSize="16" FontFamily="Lucida Sans Typewriter"
+            Content="Shift:"
+            VerticalAlignment="Top" HorizontalAlignment="Left"
+            Margin="10,81.39,0,0"/>
+        <local:NumericUpDown
+            x:Name="ShiftBox"
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="10,110.187,0,0"
+            Width="136" Height="32"
+            Value="3"
+            FontSize="16" FontFamily="Lucida Sans Console"/>
+        <StackPanel Margin="151,81.39,10,0" VerticalAlignment="Top" Background="#FF212121" x:Name="Naruto">
+            <Grid x:Name="PlainGrid" Height="30.4">
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </Grid.Resources>
+            </Grid>
+            <Grid Height="30.397">
+                <Grid.Background>
+                    <VisualBrush
+                        x:Name="GridPan"
+                        TileMode="Tile"
+                        Viewport="0,0,1,1"
+                        ViewportUnits="RelativeToBoundingBox"
+                        Visual="{Binding ElementName=PlainGrid}"/>
+                </Grid.Background>
+            </Grid>
+        </StackPanel>
+        <Grid
+            x:Name="TableCursor"
+            Height="{Binding ElementName=Naruto, Path=ActualHeight}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="151,81.39,0,0">
+            <Grid.Effect>
+                <local:InvertEffect/>
+            </Grid.Effect>
+            <Grid.Background>
+                <VisualBrush
+                    AlignmentX="Left"
+                    Visual="{Binding ElementName=Naruto}"
+                    ViewportUnits="RelativeToBoundingBox"
+                    Viewport="0,0,1,1"
+                    Stretch="UniformToFill"/>
+            </Grid.Background>
+        </Grid>
     </Grid>
 </Page>

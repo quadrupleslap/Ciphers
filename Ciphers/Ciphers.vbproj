@@ -67,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\NumericUpDown.xaml.vb">
+      <DependentUpon>NumericUpDown.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PrintoutsMenu.xaml.vb">
       <DependentUpon>PrintoutsMenu.xaml</DependentUpon>
     </Compile>
@@ -103,7 +106,13 @@
     <Compile Include="Pages\Title.xaml.vb">
       <DependentUpon>Title.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\Encoding.vb" />
     <Compile Include="Utilities\ImagePrinter.vb" />
+    <Compile Include="Utilities\InvertEffect.vb" />
+    <Page Include="Controls\NumericUpDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\PrintoutsMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -220,6 +229,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <AppDesigner Include="My Project\" />
+    <Resource Include="Resources\Invert.ps" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
