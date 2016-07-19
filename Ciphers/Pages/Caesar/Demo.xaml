@@ -56,13 +56,15 @@
                 Grid.Column="0" Grid.Row="1"
                 Foreground="White"
                 Background="#333"
-                TextWrapping="Wrap"/>
+                TextWrapping="Wrap"
+                AcceptsReturn="True"/>
             <TextBox
                 x:Name="CipheredBox"
                 Grid.Column="2" Grid.Row="1"
                 Foreground="White"
                 Background="#333"
-                TextWrapping="Wrap"/>
+                TextWrapping="Wrap"
+                AcceptsReturn="True"/>
         </Grid>
         <Label
             Foreground="White"
@@ -76,8 +78,9 @@
             Margin="10,110.187,0,0"
             Width="136" Height="32"
             Value="3"
-            FontSize="16" FontFamily="Lucida Sans Console"/>
-        <StackPanel Margin="151,81.39,10,0" VerticalAlignment="Top" Background="#FF212121" x:Name="Naruto">
+            FontSize="16" FontFamily="Lucida Sans Console"
+            Min="-10000" Max="10000"/>
+        <StackPanel Margin="151,81.39,10,0" VerticalAlignment="Top" Background="#FF212121" x:Name="AlphabetTable">
             <Grid x:Name="PlainGrid" Height="30.4">
                 <Grid.Resources>
                     <Style TargetType="Label">
@@ -100,7 +103,7 @@
         </StackPanel>
         <Grid
             x:Name="TableCursor"
-            Height="{Binding ElementName=Naruto, Path=ActualHeight}"
+            Height="{Binding ElementName=AlphabetTable, Path=ActualHeight}"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Margin="151,81.39,0,0">
@@ -110,7 +113,7 @@
             <Grid.Background>
                 <VisualBrush
                     AlignmentX="Left"
-                    Visual="{Binding ElementName=Naruto}"
+                    Visual="{Binding ElementName=AlphabetTable}"
                     ViewportUnits="RelativeToBoundingBox"
                     Viewport="0,0,1,1"
                     Stretch="UniformToFill"/>

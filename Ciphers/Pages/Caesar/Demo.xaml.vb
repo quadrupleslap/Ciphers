@@ -16,7 +16,7 @@
 
         ComponentModel.DependencyPropertyDescriptor.
             FromProperty(ActualWidthProperty, GetType(Grid)).
-            AddValueChanged(Naruto, AddressOf Hoi)
+            AddValueChanged(AlphabetTable, AddressOf Hoi)
 
         TryShift()
     End Sub
@@ -24,7 +24,7 @@
     Protected Overrides Sub Finalize()
         ComponentModel.DependencyPropertyDescriptor.
             FromProperty(ActualWidthProperty, GetType(Grid)).
-            RemoveValueChanged(Naruto, AddressOf Hoi)
+            RemoveValueChanged(AlphabetTable, AddressOf Hoi)
         MyBase.Finalize()
     End Sub
 
@@ -34,7 +34,7 @@
                 MarginProperty,
                 New Animation.ThicknessAnimation(
                     New Thickness(
-                        151 + UPPER.IndexOf(c) * Naruto.ActualWidth / UPPER.Length,
+                        151 + UPPER.IndexOf(c) * AlphabetTable.ActualWidth / UPPER.Length,
                         81.39, 0, 0),
                     New Duration(TimeSpan.FromSeconds(0.15)),
                     Animation.FillBehavior.HoldEnd),
@@ -62,7 +62,7 @@
     End Sub
 
     Sub Hoi()
-        TableCursor.Width = Naruto.ActualWidth / UPPER.Length
+        TableCursor.Width = AlphabetTable.ActualWidth / UPPER.Length
     End Sub
 
     Sub ShiftChanged() Handles ShiftBox.ValueChanged
