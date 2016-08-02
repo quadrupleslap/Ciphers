@@ -33,18 +33,21 @@
         Return CaesarEncode(-rot, inp)
     End Function
 
-    Public Function VigenereEncode(keyStr As String, inp As String) As String
-        If keyStr.Length = 0 Then Return inp
-
+    Public Function KeyNormalize(keyStr As String) As Char()
         keyStr = keyStr.ToUpper
-        Dim out(inp.Length - 1) As Char
-
         Dim key As New List(Of Char)
         For i = 0 To keyStr.Length - 1
             If UPPER.Contains(keyStr(i)) Then
                 key.Add(keyStr(i))
             End If
         Next i
+        Return key.ToArray
+    End Function
+
+    Public Function VigenereEncode(keyStr As String, inp As String) As String
+        Dim key = KeyNormalize(keyStr)
+        If key.Count = 0 Then Return inp
+        Dim out(inp.Length - 1) As Char
 
         For i = 0 To inp.Length - 1
             Dim c = inp(i)
@@ -67,17 +70,9 @@
     End Function
 
     Public Function VigenereDecode(keyStr As String, inp As String) As String
-        If keyStr.Length = 0 Then Return inp
-
-        keyStr = keyStr.ToUpper
+        Dim key = KeyNormalize(keyStr)
+        If key.Count = 0 Then Return inp
         Dim out(inp.Length - 1) As Char
-
-        Dim key As New List(Of Char)
-        For i = 0 To keyStr.Length - 1
-            If UPPER.Contains(keyStr(i)) Then
-                key.Add(keyStr(i))
-            End If
-        Next i
 
         For i = 0 To inp.Length - 1
             Dim c = inp(i)
@@ -100,15 +95,23 @@
     End Function
 
     Public Function StraddlingEncode(keyStr As String, n1 As Integer, n2 As Integer, inp As String) As String
-        Debug.Assert(0 <= n1 < 10 And 0 <= n2 < 10 And n1 <> n2)
+        Debug.Assert(0 <= n1 < 10 And 0 <= n2 < 10)
 
         keyStr = keyStr.ToUpper
         inp = inp.ToUpper
-        If n2 > n1 Then
-            Dim swp = n1
-            n1 = n2
-            n2 = swp
+
+        Dim nMin = Math.Min(n1, n2)
+        Dim nMax = Math.Max(n1, n2)
+        If nMin = nMax Then
+            If nMin = 9 Then
+                nMin = 0
+            Else
+                nMax = nMax + 1
+            End If
         End If
+
+        n1 = nMin
+        n2 = nMax
 
         Dim key As New List(Of Char)
         For i = 0 To keyStr.Length - 1
@@ -140,14 +143,14 @@
             End If
         Next
 
-        Dim out As New List(Of Char)
+        Dim out As New List(Of Integer)
         For i = 0 To inp.Length - 1
             If table.ContainsKey(inp(i)) Then
                 out.Add(table(inp(i)))
             End If
         Next
 
-        Return New String(out.ToArray)
+        Return String.Join("", out.ToArray)
     End Function
 
     Public Function StraddlingDecode(key As String, keyN1 As Integer, keyN2 As Integer, inp As String) As String

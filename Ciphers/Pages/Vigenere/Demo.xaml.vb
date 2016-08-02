@@ -6,7 +6,7 @@
     End Sub
 
     Sub CalcTutorialButton()
-        If PlainBox.Text.Length = 0 Or KeyBox.Text.Length = 0 Then
+        If PlainBox.Text.Length = 0 Or KeyNormalize(KeyBox.Text).Count = 0 Then
             TutorialButton.IsEnabled = False
         Else
             TutorialButton.IsEnabled = True

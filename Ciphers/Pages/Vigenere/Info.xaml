@@ -35,7 +35,7 @@
             <TextBlock Width="{Binding ElementName=MainView, Path=ActualWidth}" TextAlignment="Center">
                 <Image Source="/Images/Diagrams/blaise-de-vigenere.png" Height="200"/>
                 <LineBreak/><LineBreak/>
-                <Italic FontSize="16">Blaise de Vigenère was an alchemist.</Italic>
+                <Italic FontSize="16">Blaise de Vigenère was a polymath who created ciphers for fun.</Italic>
             </TextBlock>
 
             <LineBreak/><LineBreak/>

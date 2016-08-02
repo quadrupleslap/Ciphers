@@ -7,7 +7,21 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300">
     <Page.Resources>
-        <ResourceDictionary Source="/Resources/Nav.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Nav.xaml"/>
+                <ResourceDictionary Source="/Resources/PrintButton.xaml"/>
+                <ResourceDictionary>
+                    <ResourceDictionary x:Key="PrintStyles">
+                        <Style TargetType="Label">
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="FontSize" Value="18"/>
+                            <Setter Property="FontFamily" Value="Lucida Sans Typewriter"/>
+                        </Style>
+                    </ResourceDictionary>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Page.Resources>
     <Grid Background="#FF212121">
         <Label Content="Printouts" HorizontalAlignment="Left" Foreground="White" FontFamily="Lucida Sans Typewriter" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Margin="10,10,0,0"/>
@@ -31,5 +45,75 @@
                 </Border>
             </Span>
         </local:PrintoutsMenu>
+
+        <StackPanel Margin="315,81.39,10,0" VerticalAlignment="Top">
+            <TextBlock Foreground="White" FontSize="20" TextWrapping="Wrap" TextAlignment="Justify" Width="750">
+                <LineBreak/>
+                <Run>The Straddling Checkerboard is a very easy-to-use device. To encode a message with it, get rid of everything that isn't a letter, and replace the letter with its corresponding number. The numbers on the left are in the tens position, and the numbers on the top are in the units position. String all the numbers together, and the message is encoded.</Run>
+                <LineBreak/>
+            </TextBlock>
+
+            <StackPanel Orientation="Horizontal" Width="610" Margin="30">
+                <StackPanel Orientation="Vertical" Width="282" Height="132" Margin="0,0,20,0">
+                    <Label
+                        Foreground="White"
+                        FontSize="16" FontFamily="Lucida Sans Typewriter"
+                        Content="Key:"/>
+                    <TextBox
+                        x:Name="KeyBox"
+                        FontSize="14"
+                        Height="32"
+                        VerticalContentAlignment="Center"
+                        Foreground="White"
+                        Background="#333"/>
+                    <Label
+                        Foreground="White"
+                        FontSize="16" FontFamily="Lucida Sans Typewriter"
+                        Content="Excluded Digits:"
+                        Margin="0,10,0,0"/>
+                    <StackPanel Orientation="Horizontal">
+                        <local:NumericUpDown x:Name="N1Box" Margin="0,0,10,0" Width="136" Min="0" Max="9"/>
+                        <local:NumericUpDown x:Name="N2Box" Width="136" Min="0" Max="9" Value="1"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <Label
+                        Foreground="White"
+                        FontSize="16" FontFamily="Lucida Sans Typewriter"
+                        Content="Preview:"
+                        Margin="0,10,0,0"/>
+                    <Grid x:Name="Preview" Width="308" Height="125">
+                        <Grid.Resources>
+                            <Style TargetType="Label">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="18"/>
+                                <Setter Property="FontFamily" Value="Lucida Sans Typewriter"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+
+            <Button Style="{StaticResource PrintButton}" HorizontalAlignment="Center" Click="Print">Print</Button>
+        </StackPanel>
     </Grid>
 </Page>

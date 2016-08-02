@@ -13,16 +13,7 @@
         Me.Key = key
         Me.Plain = plain
 
-        Dim keyStr = key
-        keyStr = keyStr.ToUpper
-        Dim k As New List(Of Char)
-        For i = 0 To keyStr.Length - 1
-            If UPPER.Contains(keyStr(i)) Then
-                k.Add(keyStr(i))
-            End If
-        Next i
-
-        NormalizedKey = New String(k.ToArray)
+        NormalizedKey = New String(KeyNormalize(key))
         Encoded = VigenereEncode(key, plain)
     End Sub
 

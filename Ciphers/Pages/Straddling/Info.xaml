@@ -25,5 +25,22 @@
         <Label Style="{StaticResource NavActive}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,32.77,155.68,0">
             Info
         </Label>
+        <TextBlock x:Name="MainView" Margin="10,91.39,10,10" Foreground="White" FontSize="20" TextWrapping="Wrap" TextAlignment="Justify">
+            <Run>The VIC cipher was used by the Soviet spy Reino Häyhänen. It was the most complex cipher of its time, and is famous due to the repeated failures of he NSA (the USA's national security agency) at deciphering it. One of its major components is the </Run><Bold> straddling checkerboard</Bold><Run>, which is a substitution table for converting letters into numbers. The idea is to convert the most common digits into one-digit numbers, and less common digits into two-digit numbers. The concept of a straddling checkerboard is used in many ciphers today.</Run>
+
+            <LineBreak/><LineBreak/>
+
+            <Run>To make a straddling checkerboard, you need to choose a key and two different digits, and follow these steps:</Run>
+
+            <LineBreak/><LineBreak/>
+
+            <Run>1. Remove duplicate letters and anything that isn't in the alphabet from the key, including numbers and punctuation.</Run><LineBreak/>
+            <Run>2. Add any letters of the alphabet that aren't in your key to the end of your key, in alphabetical order.</Run><LineBreak/>
+            <Run>2. Draw up a table with 11 columns and 4 rows.</Run><LineBreak/>
+            <Run>3. In the leftmost column, leave the first two cells empty, and fill in the last two cells with your chosen digits.</Run><LineBreak/>
+            <Run>4. Fill in the first row with the digits 0-9, leaving the first cell blank.</Run><LineBreak/>
+            <Run>5. Fill in the rest of the cells with your key. Make sure the cells in the first row whose columns correspond to your digits are left blank.</Run><LineBreak/>
+            <Run>6. You're done! To encode any letter, just replace it with the number it is under, possibly prefixed by the number on its left.</Run>
+        </TextBlock>
     </Grid>
 </Page>

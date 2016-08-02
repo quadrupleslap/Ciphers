@@ -26,7 +26,9 @@
             Modding = False
 
             _Value = val
-            RaiseEvent ValueChanged(val)
+            If IsInitialized Then
+                RaiseEvent ValueChanged(val)
+            End If
         End Set
     End Property
 
@@ -72,7 +74,9 @@
             If Not ((Max.HasValue And val > Max) Or (Min.HasValue And val < Min)) Then
                 BorderThickness = New Thickness(0)
                 _Value = val
-                RaiseEvent ValueChanged(val)
+                If IsInitialized Then
+                    RaiseEvent ValueChanged(val)
+                End If
             End If
         End If
     End Sub
