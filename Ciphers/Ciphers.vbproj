@@ -106,9 +106,13 @@
     <Compile Include="Pages\Title.xaml.vb">
       <DependentUpon>Title.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Vigenere\Tutorial.xaml.vb">
+      <DependentUpon>Tutorial.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Encoding.vb" />
     <Compile Include="Utilities\ImagePrinter.vb" />
     <Compile Include="Utilities\InvertEffect.vb" />
+    <Compile Include="Utilities\Modal.vb" />
     <Page Include="Controls\NumericUpDown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -170,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Title.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Vigenere\Tutorial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -246,6 +254,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Printouts\vigenere-table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Diagrams\rot-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Diagrams\blaise-de-vigenere.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

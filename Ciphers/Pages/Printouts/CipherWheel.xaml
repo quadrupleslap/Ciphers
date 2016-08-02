@@ -39,6 +39,19 @@
         </local:PrintoutsMenu>
 
         <StackPanel Margin="315,81.39,10,0" VerticalAlignment="Top">
+            <Border BorderBrush="Gray" BorderThickness="2" Width="275">
+                <Image Source="/Images/Printouts/cipher-wheel.png" Width="275"/>
+            </Border>
+            <TextBlock Foreground="White" FontSize="20" TextWrapping="Wrap" TextAlignment="Justify" Width="750">
+                <LineBreak/>
+                <Run>Cut out the paper print-outs and attach the smaller wheel on top of the larger wheel using a split-pin to create a </Run>
+                <Bold> Caesar Cipher Wheel</Bold><Run>.</Run> 
+                <LineBreak/><LineBreak/>
+                <Run>The outside wheel is the plaintext wheel (represents letters in your message), while the inside wheel is the ciphertext wheel (represents the encrypted message).</Run>
+                <LineBreak/><LineBreak/>
+                <Run>To encipher a message using the wheel, start with all letters matched up, and rotate the inside wheel anti-clockwise by the chosen shift. Then, encode each letter in the message by finding it on the outer wheel, and replacing the letter with the matching letter on the inside wheel.</Run>
+                <LineBreak/>
+            </TextBlock>
             <Button Style="{StaticResource PrintButton}" Click="Print" HorizontalAlignment="Center">Print</Button>
         </StackPanel>
     </Grid>

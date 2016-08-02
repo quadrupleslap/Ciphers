@@ -27,7 +27,8 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Foreground" Value="#ADADAD"/>
+                            <Setter Property="Foreground" Value="#FF888888"/>
+                            <Setter Property="Background" Value="#FF333333"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="#FFFFFFFF"/>

@@ -38,6 +38,21 @@
         </local:PrintoutsMenu>
 
         <StackPanel Margin="315,81.39,10,0" VerticalAlignment="Top">
+            <Border BorderBrush="Gray" BorderThickness="2" Width="275">
+                <Image Source="/Images/Printouts/vigenere-table.png" Width="275"/>
+            </Border>
+            <TextBlock Foreground="White" FontSize="20" TextWrapping="Wrap" TextAlignment="Justify" Width="750">
+                <LineBreak/>
+                    <Run>This is known as the Vigenere square. To encode a letter using the Vigenere Cipher:</Run>
+
+                    <LineBreak/><LineBreak/>
+                
+                    1. Find the row where the first cell is the letter you want to encode.<LineBreak/>
+                    2. Find the column where the first cell is the corresponding key letter.<LineBreak/>
+                    3. Find the letter at the intersection of this row and column.<LineBreak/>
+                    4. That's the encoded letter!<LineBreak/>
+                <LineBreak/>
+            </TextBlock>
             <Button Style="{StaticResource PrintButton}" Click="Print" HorizontalAlignment="Center">Print</Button>
         </StackPanel>
     </Grid>

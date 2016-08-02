@@ -25,5 +25,28 @@
         <Label Style="{StaticResource NavActive}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,32.77,155.68,0">
             Info
         </Label>
+        <TextBlock x:Name="MainView" Margin="10,91.39,10,10" Foreground="White" FontSize="20" TextWrapping="Wrap" TextAlignment="Justify">
+            <Run>
+                The Caesar Cipher is one of the simplest and most famous encryption techniques. It was originally used by Julius Caesar over 2000 years ago to communicate secretly with his generals, and at the time everybody thought he was using an unknown foreign language. Nowadays, everyone knows about it, and it can easily be broken by hand, but it is still somewhat commonly used in online puzzles to hide the answers, similar to how upside-down text is used on newspapers, but on the Internet.
+            </Run>
+            <LineBreak/><LineBreak/>
+            <TextBlock Width="{Binding ElementName=MainView, Path=ActualWidth}" TextAlignment="Center">
+                <Image Source="/Images/Diagrams/rot-3.png" Height="200">
+                    <Image.Effect>
+                        <local:InvertEffect/>
+                    </Image.Effect>
+                </Image>
+                <LineBreak/><LineBreak/>
+                <Italic FontSize="16">A Caesar Cipher with shift 3.</Italic>
+            </TextBlock>
+            <LineBreak/><LineBreak/>
+            <Run>
+                The Caesar Cipher is based on a very simple premise. To encode a message, each letter of the alphabet is shifted forward a certain number of letters. For example, a shift of 1 means that A turns into B, B turns into C, and so on, until at the very end we have Z, which loops back around to A. Decoding is the exact same thing, but in the other direction.
+            </Run>
+            <LineBreak/><LineBreak/>
+            <Run>
+                Head over to the demo tab to try it out yourself!
+            </Run>
+        </TextBlock>
     </Grid>
 </Page>
